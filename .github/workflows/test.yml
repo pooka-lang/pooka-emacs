@@ -1,0 +1,19 @@
+name: test
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+      - run: npm install --global tree-sitter-cli@0.26.8
+      - run: sudo apt-get update && sudo apt-get install -y emacs-nox
+      - run: emacs -Q --batch -L . -l tests/pooka-mode-test.el -f ert-run-tests-batch-and-exit
+      - run: emacs -Q --batch -L . -l pooka-mode.el --eval '(pooka-install-grammar)'
+      - run: emacs -Q --batch -L . -l tests/pooka-mode-test.el -f ert-run-tests-batch-and-exit
+        env:
+          POOKA_TEST_TREESITTER: "1"
