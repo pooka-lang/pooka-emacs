@@ -29,7 +29,46 @@
     (,pooka--delimiter-regexp 0 'font-lock-delimiter-face))
   "Highlighting used when the Tree-sitter grammar is unavailable.")
 
-(defconst pooka--treesit-query "(comment) @font-lock-comment-face\n(doc_comment) @font-lock-doc-face\n(module_comment) @font-lock-doc-face\n(string) @font-lock-string-face\n(escape_sequence) @font-lock-escape-face\n(number) @font-lock-number-face\n(boolean) @font-lock-constant-face\n(nil) @font-lock-constant-face\n(continue_expression) @font-lock-keyword-face\n(type_identifier) @font-lock-type-face\n(self) @font-lock-constant-face\n(super) @font-lock-constant-face\n(parameter (identifier) @font-lock-variable-name-face)\n(function_declaration name: (identifier) @font-lock-function-name-face)\n(signature name: (identifier) @font-lock-function-name-face)\n(external_signature name: (identifier) @font-lock-function-name-face)\n(external_declaration name: (type_identifier) @font-lock-type-face)\n(native_declaration name: (type_identifier) @font-lock-type-face)\n(behavior name: (identifier) @font-lock-function-name-face)\n(field_declaration name: (identifier) @font-lock-property-face)\n(member_expression member: (identifier) @font-lock-property-face)\n(call_expression function: (identifier) @font-lock-function-name-face)\n(call_expression function: (member_expression member: (identifier) @font-lock-function-name-face))\n(module_declaration name: (identifier) @font-lock-type-face)\n(module_path (identifier) @font-lock-type-face)\n(bit_option (identifier) @font-lock-property-face)\n(enum_declaration name: (type_identifier) @font-lock-type-face)\n(enum_variant name: (type_identifier) @font-lock-constant-face)\n(enum_pattern module: (identifier) @font-lock-type-face)\n(enum_pattern variant: (type_identifier) @font-lock-constant-face)\n(member_expression object: (type_identifier) member: (type_identifier) @font-lock-constant-face)\n(concise_field name: (identifier) @font-lock-property-face)\n[\"module\" \"import\" \"as\" \"class\" \"actor\" \"interface\" \"external\" \"native\" \"enum\" \"from\"\n \"is\" \"with\" \"let\" \"var\" \"new\" \"be\" \"fn\" \"match\" \"if\" \"loop\" \"in\"\n \"break\" \"assert\" \"panic\" \"todo\" \"echo\" \"test\" \"skip\"] @font-lock-keyword-face\n[\"+\" \"-\" \"*\" \"/\" \"%\" \"=\" \"+=\" \"-=\" \"*=\" \"==\" \"!=\" \"<\" \"<=\" \">\" \">=\"\n \"!\" \"&&\" \"||\" \"&\" \"|\" \"|>\" \"?\" \"->\" \"..\"] @font-lock-operator-face\n[\"(\" \")\" \"#(\" \"[\" \"]\" \"{\" \"}\" \"<<\" \">>\"] @font-lock-bracket-face\n[\",\" \":\" \".\"] @font-lock-delimiter-face\n")
+(defconst pooka--treesit-query "(comment) @font-lock-comment-face
+(doc_comment) @font-lock-doc-face
+(module_comment) @font-lock-doc-face
+(string) @font-lock-string-face
+(escape_sequence) @font-lock-escape-face
+(number) @font-lock-number-face
+(boolean) @font-lock-constant-face
+(nil) @font-lock-constant-face
+(continue_expression) @font-lock-keyword-face
+(type_identifier) @font-lock-type-face
+(self) @font-lock-constant-face
+(super) @font-lock-constant-face
+(parameter (identifier) @font-lock-variable-name-face)
+(function_declaration name: (identifier) @font-lock-function-name-face)
+(signature name: (identifier) @font-lock-function-name-face)
+(external_signature name: (identifier) @font-lock-function-name-face)
+(external_declaration name: (type_identifier) @font-lock-type-face)
+(native_declaration name: (type_identifier) @font-lock-type-face)
+(behavior name: (identifier) @font-lock-function-name-face)
+(field_declaration name: (identifier) @font-lock-property-face)
+(member_expression member: (identifier) @font-lock-property-face)
+(call_expression function: (identifier) @font-lock-function-name-face)
+(call_expression function: (member_expression member: (identifier) @font-lock-function-name-face))
+(module_declaration name: (identifier) @font-lock-type-face)
+(module_path (identifier) @font-lock-type-face)
+(bit_option (identifier) @font-lock-property-face)
+(enum_declaration name: (type_identifier) @font-lock-type-face)
+(enum_variant name: (type_identifier) @font-lock-constant-face)
+(enum_pattern module: (identifier) @font-lock-type-face)
+(enum_pattern variant: (type_identifier) @font-lock-constant-face)
+(member_expression object: (type_identifier) member: (type_identifier) @font-lock-constant-face)
+(concise_field name: (identifier) @font-lock-property-face)
+[\"module\" \"import\" \"as\" \"class\" \"actor\" \"interface\" \"external\" \"native\" \"enum\" \"from\"
+ \"is\" \"with\" \"let\" \"var\" \"new\" \"be\" \"fn\" \"match\" \"if\" \"loop\" \"in\"
+ \"break\" \"assert\" \"panic\" \"todo\" \"echo\" \"test\" \"skip\"] @font-lock-keyword-face
+[\"+\" \"-\" \"*\" \"/\" \"%\" \"=\" \"+=\" \"-=\" \"*=\" \"==\" \"!=\" \"<\" \"<=\" \">\" \">=\"
+ \"!\" \"&&\" \"||\" \"&\" \"|\" \"|>\" \"?\" \"->\" \"..\"] @font-lock-operator-face
+[\"(\" \")\" \"#(\" \"[\" \"]\" \"{\" \"}\" \"<<\" \">>\"] @font-lock-bracket-face
+[\",\" \":\" \".\"] @font-lock-delimiter-face
+")
 
 (defvar pooka--treesit-font-lock-settings
   (when (fboundp 'treesit-font-lock-rules)

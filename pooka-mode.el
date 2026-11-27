@@ -41,7 +41,7 @@
   "Repository used to install the Pooka Tree-sitter grammar.")
 
 (defconst pooka-grammar-revision
-  "d7412722bdb1f60d34ebdd30426bdd613bbb41ba"
+  "07244c23f51b486afeb3226bd4b5dc327d17148c"
   "Pinned revision of the Pooka Tree-sitter grammar.")
 
 (defun pooka--git (directory &rest arguments)

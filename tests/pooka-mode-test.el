@@ -52,3 +52,10 @@
       (pooka-mode)
       (font-lock-ensure)
       (should (treesit-parser-list)))))
+
+(ert-deftest pooka-match-alternatives-keep-string-highlighting ()
+  (should
+   (eq (pooka-test-face
+        "match args { [\"check\"] | [\"generate\"] -> \"<!-- marker -->\"\n_ -> Nil }"
+        "marker")
+       'font-lock-string-face)))
